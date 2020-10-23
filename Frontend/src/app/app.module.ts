@@ -8,15 +8,21 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HousingService } from './services/housing.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
 import {Router,RouterModule, Routes} from '@angular/router'
+import { RentPropertyComponent } from './property/rent-property/rent-property.component';
+import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 
-const appRouters:Routes=[
-  {
+const appRouters:Routes=[{
     path:'',
     component:PropertyListComponent
-  },
-  {
+  },{
     path:'add-property',
     component:AddPropertyComponent
+  },{
+    path:'rent-property',
+    component:RentPropertyComponent
+  },{
+    path:'property-detail/:id',
+    component:PropertyDetailComponent
   }
 ]
 
@@ -26,7 +32,9 @@ const appRouters:Routes=[
     PropertyCardComponent,
     PropertyListComponent,
     NavBarComponent,
-    AddPropertyComponent
+    AddPropertyComponent,
+    RentPropertyComponent,
+    PropertyDetailComponent
   ],
   imports: [
     BrowserModule,
