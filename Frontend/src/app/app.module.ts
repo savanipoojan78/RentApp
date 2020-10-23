@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { PropertyCardComponent } from './property/property-card/property-card.component';
@@ -8,7 +9,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HousingService } from './services/housing.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
 import {Router,RouterModule, Routes} from '@angular/router'
-import { RentPropertyComponent } from './property/rent-property/rent-property.component';
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 
 const appRouters:Routes=[{
@@ -19,10 +19,13 @@ const appRouters:Routes=[{
     component:AddPropertyComponent
   },{
     path:'rent-property',
-    component:RentPropertyComponent
+    component:PropertyListComponent
   },{
     path:'property-detail/:id',
     component:PropertyDetailComponent
+  },{
+    path:'**',
+    component:PropertyListComponent
   }
 ]
 
@@ -33,12 +36,12 @@ const appRouters:Routes=[{
     PropertyListComponent,
     NavBarComponent,
     AddPropertyComponent,
-    RentPropertyComponent,
     PropertyDetailComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
     RouterModule.forRoot(appRouters)
   ],
   providers: [
